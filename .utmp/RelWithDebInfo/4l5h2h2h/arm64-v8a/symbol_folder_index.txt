@@ -1,0 +1,1 @@
+C:\Users\maxim\UnityProjects\MatterCrafter\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4l5h2h2h\obj\arm64-v8a
