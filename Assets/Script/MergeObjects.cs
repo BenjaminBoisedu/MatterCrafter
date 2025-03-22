@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class MergeObjects : MonoBehaviour
 {
@@ -7,18 +9,21 @@ public class MergeObjects : MonoBehaviour
     public bool triggerActivated = false;
     public GameObject objectToSpawn;
     public bool isMerging = false;
+    private Camera mainCamera;
+    private PlayerInput playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        mainCamera = Camera.main;
+        playerInput = GetComponent<PlayerInput>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void OnCollisionEnter(Collision collision)
@@ -36,17 +41,17 @@ public class MergeObjects : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
     }
 
-
-    void GrabObject()
+    private GameObject GetMergedObject(MergeObjects obj1, MergeObjects obj2)
     {
-        rb.isKinematic = false; // Active la physique pour grab
-    }
-
-    void ReleaseObject()
-    {
-        rb.isKinematic = true; // Désactive la physique pour qu'il ne tombe pas
+        // Exemple de logique : Assigner manuellement les combinaisons
+        if (obj1.objectToSpawn != obj2.objectToSpawn)
+        {
+            return obj1.objectToSpawn; // Choisir une logique selon le projet
+        }
+        return null;
     }
 }
 
